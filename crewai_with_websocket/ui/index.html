@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Crew WebSocket Test</title>
+</head>
+<body>
+    <h2>Crew WebSocket Test</h2>
+    <label for="topic">Topic:</label>
+    <input type="text" id="topic" value="AI LLMs">
+    <button id="connectBtn">Connect</button>
+    <button id="sendBtn" disabled>Send Topic</button>
+    <pre id="output"></pre>
+
+    <script>
+        let ws;
+
+        document.getElementById('connectBtn').onclick = function() {
+            ws = new WebSocket('ws://localhost:8000/ws/run-crew');
+            ws.onopen = function() {
+                document.getElementById('output').textContent = 'Connected\n';
+                document.getElementById('sendBtn').disabled = false;
+            };
+            ws.onmessage = function(event) {
+                document.getElementById('output').textContent += 'Response: ' + event.data + '\n';
+            };
+            ws.onclose = function() {
+                document.getElementById('output').textContent += 'Disconnected\n';
+                document.getElementById('sendBtn').disabled = true;
+            };
+            ws.onerror = function(e) {
+                document.getElementById('output').textContent += 'Error\n';
+            };
+        };
+
+        document.getElementById('sendBtn').onclick = function() {
+            const topic = document.getElementById('topic').value;
+            ws.send(topic);
+            document.getElementById('output').textContent += 'Sent: ' + topic + '\n';
+        };
+    </script>
+</body>
+</html>
