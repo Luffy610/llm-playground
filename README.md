@@ -20,7 +20,7 @@ This is my personal playground for GenAI. Each subproject here is a self-contain
 | Project Name             | Description & Link                                                                 |
 | ------------------------ |------------------------------------------------------------------------------------|
 | **CreewAI**              | [🧠 Real-time WebSocket LLM Agent](./crewai_with_websocket/README.md)              |
-| **Chat with Your Files** | [📄 RAG Assistant for PDFs/CSVs using Gemini + FAISS](./chat-with-files/README.md) |
+| **Chat with Your Files** | [📄 RAG Assistant for PDFs/CSVs using Gemini + FAISS](./chat_with_files/README.md) |
 
 # ✍️ Author
 Built by Dhruv Kotwani
