@@ -1,0 +1,8 @@
+pymupdf
+langchain
+langchain-google-genai
+langchain-community
+dotenv
+faiss-cpu
+streamlit
+pandas
